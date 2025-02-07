@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variables - Update these with your details
-REGISTRY_API_KEY="d01f0db40b4b984e9195f287aaa5e275"        # Replace with your Datadog API key
+REGISTRY_API_KEY=".."        # Replace with your Datadog API key
 DD_SITE="us3.datadoghq.com"           
 TAGS="service:registry,env:produs,datacenter:east" 
 DD_ENV="produs"
