@@ -2,7 +2,7 @@
 
 # Variables - Update these with your details
 REGISTRY_API_KEY=".."        # Replace with your Datadog API key
-DD_SITE="us3.datadoghq.com"           
+DD_SITE=""           
 TAGS="service:registry,env:produs,datacenter:east" 
 DD_ENV="produs"
 DD_AGENT_VERSION="7.49.0-1"           # Datadog agent version (adjust as needed)
@@ -100,6 +100,4 @@ systemctl status datadog-agent
 echo "Datadog Agent installation and configuration completed successfully!"
 
 
-# application : ffc77bb044b53c75f893dbbddcf7decbe2607990
 
-# api_key=d01f0db40b4b984e9195f287aaa5e275
