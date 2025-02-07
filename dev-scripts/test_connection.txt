@@ -1,0 +1,16 @@
+stage('Trigger PROD-Nginx-UI-Deployment-EU-E-Server in prodops') {
+    steps {
+        script {
+            def prodOpsUrl = "https://prodops.whatfix.com/jenkins/job/PROD-Nginx-UI-Deployment-EU-E-Server/buildWithParameters"
+            def response = httpRequest(
+                url: prodOpsUrl,
+                httpMode: 'POST',
+                authentication: 'PRODOPS_JENKINS_CREDENTIALS', // This should be set up in Jenkins Credentials
+                requestBody: "param1=value1&param2=value2" // Replace with actual parameters
+            )
+            if (response.status != 200) {
+                error "Failed to trigger PROD-Nginx-UI-Deployment-EU-E-Server. Status: ${response.status}"
+            }
+        }
+    }
+}
