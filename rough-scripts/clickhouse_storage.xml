@@ -1,0 +1,45 @@
+<yandex>
+   <storage_configuration>
+      <disks>
+         <!--
+          default disk is special, it always
+          exists even if not explicitly
+          configured here, but you can't change
+          it's path here (you should use <path>
+          on top level config instead)
+      -->
+         <default>
+            <!--
+             You can reserve some amount of free space
+             on any disk (including default) by adding
+             keep_free_space_bytes tag
+         -->
+            <!-- 10 GB free space -->
+            <keep_free_space_bytes>10737418240</keep_free_space_bytes>
+         </default>
+         <vol01>
+            <path>/var/lib/clickhouse/</path>
+         </vol01>
+         <vol02>
+            <path>/datadrive/clickhouse/</path>
+         </vol02>
+      </disks>
+      <policies>
+         <default>
+            <!-- name for new storage policy -->
+            <volumes>
+               <jbod_volume>
+                  <!-- name of volume -->
+                  <!--
+                  the order of listing disks inside
+                  volume defines round-robin sequence
+                  -->
+               <disk>default</disk>
+               <disk>vol01</disk>
+               <disk>vol02</disk>
+               </jbod_volume>
+            </volumes>
+         </default>
+      </policies>
+   </storage_configuration>
+</yandex>
